@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tireprothail-cjmr7l3u.manus.space/sitemap.xml
