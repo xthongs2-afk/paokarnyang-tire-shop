@@ -44,7 +44,7 @@ export default function Tires() {
 
   return <SiteShell>
     <section className="hero-section tires-hero tires-hero--background tires-hero--filled">
-      <img className="hero-image" src="/hero-neon-tire-2560.webp" srcSet="/hero-neon-tire-1280.webp 1280w, /hero-neon-tire-2560.webp 2560w" sizes="100vw" alt="ภาพยางรถยนต์ในอู่ไฟนีออน" />
+      <img className="hero-image" src="/hero-tire-violet-2560.webp" srcSet="/hero-tire-violet-1280.webp 1280w, /hero-tire-violet-2560.webp 2560w" sizes="100vw" alt="ภาพยางรถยนต์ในอู่ไฟนีออน" />
       <div className="hero-wash" />
       <div className="container hero-content tires-hero-content">
         <p className="hero-kicker"><span className="pulse-dot" /> แค็ตตาล็อก / สต็อกจริง</p>
