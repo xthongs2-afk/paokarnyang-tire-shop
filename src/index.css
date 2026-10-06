@@ -1558,3 +1558,9 @@ h1 em, h2 em { color: #ff48b3; font-style: normal; text-shadow: 0 0 22px rgba(25
 }
 /* Product cards keep their own top light bar (per-card colours at :nth-child specificity) - thicken it to match the 4px frames. */
 .product-card:nth-child(n)::before { height: 4px; box-shadow: 0 0 16px rgba(0,229,255,.85), 0 0 22px rgba(255,0,174,.6); }
+/* Mobile home bottom bar (hours + Google Maps + โทรด่วน): plain, no effects at all - no running frame, glow, pulse, beacon, text-shadow or tap animation. Colours/borders and the scroll collapse stay. */
+@media (max-width: 640px) {
+  .mobile-home-cta-pair, .mobile-home-cta-pair .mobile-home-hours, .mobile-home-cta-pair .mobile-home-hours *, .mobile-home-cta-pair .mobile-home-cta-actions a, .mobile-home-cta-pair .mobile-home-cta-actions a * { animation: none !important; text-shadow: none !important; filter: none !important; }
+  .mobile-home-cta-pair .mobile-home-hours, .mobile-home-cta-pair .mobile-home-cta-actions a, .mobile-home-cta-pair .mobile-home-cta-actions a:hover, .mobile-home-cta-pair .mobile-home-cta-actions a:focus-visible, .mobile-home-cta-pair .mobile-home-cta-actions a:active { box-shadow: none !important; transform: none !important; }
+  .mobile-home-cta-pair .mobile-home-hours::before, .mobile-home-cta-pair .mobile-home-hours::after, .mobile-home-cta-pair .mobile-home-cta-actions a::before, .mobile-home-cta-pair .mobile-home-cta-actions a::after { content: none !important; animation: none !important; }
+}
