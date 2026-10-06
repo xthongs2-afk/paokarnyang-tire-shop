@@ -1545,3 +1545,16 @@ h1 em, h2 em { color: #ff48b3; font-style: normal; text-shadow: 0 0 22px rgba(25
 @media (max-width: 640px) { .tires-hero--background h1 { max-width: 5em; }.services-hero--background h1 { max-width: 5.8em; } }
 /* Mobile home: the violet image's bright tread sits right behind the description - darken the wash over the text block (left/upper-middle), keep the pink rim on the right visible. */
 @media (max-width: 640px) { .home-hero--filled .hero-wash { background: radial-gradient(ellipse 95% 38% at 30% 42%, rgba(5,5,8,.62) 0%, rgba(5,5,8,.4) 55%, transparent 100%), linear-gradient(90deg, rgba(5,5,8,.5) 0%, rgba(5,5,8,.32) 60%, rgba(5,5,8,.08) 100%), linear-gradient(0deg, rgba(5,5,8,.8) 0%, rgba(5,5,8,.3) 48%, rgba(5,5,8,.12) 100%); }.home-hero--filled .hero-description { text-shadow: 0 1px 2px rgba(5,5,8,.9), 0 0 12px rgba(5,5,8,.7); } }
+/* Running neon frames, bigger: 2px -> 4px edge, longer bright streak (38-64% -> 22-78% of the 180% track). Same selector list as the base rule, so this later rule wins. */
+.site-header::before, .product-card::before, .product-image-frame::before, .service-row::before, .service-faq::before, .filter-deck::before, .catalog-status::before, .section-end::before, .contact-map::before, .contact-data::before, .local-route-guide::before, .local-search-action::before, .contact-home-link::before, .neon-button::before, .ghost-button::before, .header-call::before, .mobile-call-bar::before, .mobile-map-bar::before, .mobile-home-nav::before, .mobile-home-map-bar::before, .mobile-home-quick-call::before, .mobile-home-hours::before, .contact-home-return::before, .site-footer::after {
+  background:
+    linear-gradient(90deg, transparent 0 22%, rgba(0, 229, 255, .98) 44%, rgba(217, 255, 63, .94) 56%, transparent 78%) top / 180% 4px no-repeat,
+    linear-gradient(180deg, transparent 0 22%, rgba(217, 255, 63, .96) 44%, rgba(255, 138, 61, .94) 56%, transparent 78%) right / 4px 180% no-repeat,
+    linear-gradient(270deg, transparent 0 22%, rgba(255, 0, 174, .98) 44%, rgba(136, 92, 246, .94) 56%, transparent 78%) bottom / 180% 4px no-repeat,
+    linear-gradient(0deg, transparent 0 22%, rgba(136, 92, 246, .96) 44%, rgba(0, 229, 255, .94) 56%, transparent 78%) left / 4px 180% no-repeat;
+}
+@media (max-width: 640px) and (prefers-reduced-motion: no-preference) {
+  .site-header::before, .product-card::before, .product-image-frame::before, .service-row::before, .service-faq::before, .filter-deck::before, .catalog-status::before, .section-end::before, .contact-map::before, .contact-data::before, .local-route-guide::before, .local-search-action::before, .contact-home-link::before, .neon-button::before, .ghost-button::before, .header-call::before, .mobile-call-bar::before, .mobile-map-bar::before, .mobile-home-nav::before, .mobile-home-map-bar::before, .mobile-home-quick-call::before, .mobile-home-hours::before, .contact-home-return::before, .site-footer::after { opacity: .9; }
+}
+/* Product cards keep their own top light bar (per-card colours at :nth-child specificity) - thicken it to match the 4px frames. */
+.product-card:nth-child(n)::before { height: 4px; box-shadow: 0 0 16px rgba(0,229,255,.85), 0 0 22px rgba(255,0,174,.6); }
