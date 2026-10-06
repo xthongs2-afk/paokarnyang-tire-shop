@@ -1539,3 +1539,5 @@ h1 em, h2 em { color: #ff48b3; font-style: normal; text-shadow: 0 0 22px rgba(25
 
 /* New hero (tire on the right ~55-88% of the frame): keep the wheel in view on phones. */
 @media (max-width: 640px) { .hero-section .hero-image { object-position: 72% center; } }
+/* Mobile: the pink brand title sits over the pink wheel, so outline it in dark (filter, because fxBrandChromatic animates text-shadow) and lift the fill. */
+@media (max-width: 640px) { .hero-content h1.hero-brand-name { font-size: clamp(2.6rem, 17vw, 4.4rem); color: #ff3fa8; filter: drop-shadow(0 0 1px #050508) drop-shadow(0 2px 3px rgba(5,5,8,.95)) drop-shadow(0 0 10px rgba(5,5,8,.85)); } }
