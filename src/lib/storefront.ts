@@ -1,6 +1,6 @@
 import type { Money, Product } from "@shared/commerce/types";
 
-export const heroImage = "/manus-storage/contact-hero-full-width-neon-tire_2f9f7246.png";
+export const heroImage = "/hero-neon-tire-2560.webp";
 export const productFallbackImage = "/manus-storage/paokarnyang-phantom-grip_49b11f0c.jpg";
 
 const catalogProductImages: Record<string, string> = {

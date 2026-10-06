@@ -31,7 +31,7 @@ export default function Home() {
 
   return <SiteShell>
     <section className="hero-section home-hero--filled">
-      <img className="hero-image" src="/manus-storage/contact-hero-full-width-neon-tire_2f9f7246.png" alt="ภาพยางรถยนต์ในอู่ไฟนีออน" />
+      <img className="hero-image" src="/hero-neon-tire-2560.webp" srcSet="/hero-neon-tire-1280.webp 1280w, /hero-neon-tire-2560.webp 2560w" sizes="100vw" alt="ภาพยางรถยนต์ในอู่ไฟนีออน" />
       <div className="hero-wash" />
       <div className="container hero-content">
         <div className="hero-kicker"><span className="pulse-dot" /> เปิดให้บริการ / จ.พระนครศรีอยุธยา</div>

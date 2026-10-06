@@ -1536,3 +1536,6 @@ h1 em, h2 em { color: #ff48b3; font-style: normal; text-shadow: 0 0 22px rgba(25
     transition-duration: 0.01ms !important;
   }
 }
+
+/* New hero (tire on the right ~55-88% of the frame): keep the wheel in view on phones. */
+@media (max-width: 640px) { .hero-section .hero-image { object-position: 72% center; } }
