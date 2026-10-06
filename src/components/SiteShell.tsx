@@ -39,7 +39,7 @@ function Header() {
       <div className="container header-main">
         <Link href="/" className="brand-mark" aria-label="เป้าการยาง home">
           <span className="brand-dot" />
-          <span className="brand-name">เป้าการ<span>ยาง</span></span>
+          <span className="brand-name">เป้าการยาง</span>
         </Link>
         <nav className="desktop-nav" aria-label="เมนูหลัก">
           {navigation.map(item => <Link key={item.href} href={item.href} className={location === item.href ? "active" : ""}>{item.label}</Link>)}
