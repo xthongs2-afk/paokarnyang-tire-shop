@@ -1563,3 +1563,12 @@ h1 em, h2 em { color: #ff48b3; font-style: normal; text-shadow: 0 0 22px rgba(25
 @media (max-width: 640px) {
   .mobile-home-cta-pair .mobile-home-hours, .mobile-home-cta-pair .mobile-home-hours strong, .mobile-home-cta-pair .mobile-home-cta-actions a { animation: none !important; opacity: 1; }
 }
+
+.product-card-glare { display: none; }
+/* 3D tilt on product cards (desktop mouse only). The card's `rotate` and the image's
+   `translate` are set by useCardTilt in ProductCard.tsx; the grid supplies the perspective. */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .product-grid { perspective: 1100px; }
+  .product-card-glare { display: block; position: absolute; inset: 0; z-index: 3; border-radius: inherit; pointer-events: none; opacity: 0; mix-blend-mode: screen; background: radial-gradient(circle at var(--glare-x, 50%) var(--glare-y, 50%), rgba(111, 243, 255, .2), rgba(255, 72, 179, .08) 32%, transparent 58%); transition: opacity .25s ease-out; }
+  .product-card:hover .product-card-glare { opacity: 1; }
+}
