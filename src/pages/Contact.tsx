@@ -2,7 +2,7 @@ import SiteShell from "@/components/SiteShell";
 import ContactMap from "@/components/ContactMap";
 import { Clock3, MapPin, Navigation, PhoneCall, Route } from "lucide-react";
 
-const directionsUrl = "https://www.google.com/maps/dir/?api=1&destination=14.3517,100.5774&travelmode=driving";
+const directionsUrl = "https://www.google.com/maps/dir/?api=1&destination=14.3528731,100.6122203&travelmode=driving";
 
 function GoogleMapsIcon() { return <svg className="google-maps-icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path fill="#34A853" d="M12 2.1A7.9 7.9 0 0 0 4.1 10c0 5.3 7.9 11.9 7.9 11.9S19.9 15.3 19.9 10A7.9 7.9 0 0 0 12 2.1Z" /><path fill="#4285F4" d="M12 2.1A7.9 7.9 0 0 0 4.1 10c0 5.3 7.9 11.9 7.9 11.9V10Z" /><path fill="#FBBC04" d="M12 21.9S19.9 15.3 19.9 10A7.9 7.9 0 0 0 12 2.1v8.2Z" /><circle cx="12" cy="10.1" r="3.2" fill="#EA4335" /><circle cx="12" cy="10.1" r="1.35" fill="#fff" /></svg>; }
 
