@@ -5,7 +5,7 @@ import { ArrowLeft, ChevronUp, House, List, MapPin, Phone, Wrench } from "lucide
 import { applyMotionCue } from "@/lib/motionRegistry";
 import { applyMobileMotionCue } from "@/lib/mobileMotionRegistry";
 
-const directionsUrl = "https://www.google.com/maps/dir/?api=1&destination=14.3528731,100.6122203&travelmode=driving";
+const directionsUrl = "https://www.google.com/maps/dir/?api=1&destination=14.3527274,100.6121556&travelmode=driving";
 
 const navigation = [
   { href: "/", label: "หน้าแรก" },
