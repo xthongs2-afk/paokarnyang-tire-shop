@@ -257,7 +257,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
           <div>
             <p className="footer-brand-eyebrow">เป้าการยาง / ไทยแลนด์</p>
             <p className="footer-brand-description">ร้านยางรถยนต์ในตำบลธนู อำเภออุทัย จังหวัดพระนครศรีอยุธยา พร้อมบริการปะยางและถ่วงล้อสำหรับรถหลากหลายประเภท</p>
-            <address className="footer-address">9J36+4VX ตำบลธนู อำเภออุทัย จ.พระนครศรีอยุธยา 13210</address>
+            <address className="footer-address">9J36+4V4 ตำบลธนู อำเภออุทัย จ.พระนครศรีอยุธยา 13210</address>
           </div>
           <div className="footer-stats">
             <a href="tel:035213134">โทร // 035-213134</a>
