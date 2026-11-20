@@ -33,7 +33,7 @@ export default function Home() {
 
   return <SiteShell>
     <section className="hero-section home-hero--filled">
-      <img className="hero-image" src="/hero-tire-violet-2560.webp" srcSet="/hero-tire-violet-1280.webp 1280w, /hero-tire-violet-2560.webp 2560w" sizes="100vw" alt="ภาพยางรถยนต์ในอู่ไฟนีออน" />
+      <img className="hero-image" src="/hero-tire-violet-2560.webp" srcSet="/hero-tire-violet-1280.webp 1280w, /hero-tire-violet-2560.webp 2560w" sizes="100vw" width={2560} height={1428} fetchPriority="high" alt="ภาพยางรถยนต์ในอู่ไฟนีออน" />
       <div className="hero-wash" />
       <div className="container hero-content">
         <div className="hero-kicker"><span className="pulse-dot" /> เปิดให้บริการ / จ.พระนครศรีอยุธยา</div>

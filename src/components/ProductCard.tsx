@@ -85,7 +85,7 @@ export default function ProductCard({ product, index = 0 }: { product: Product; 
     <article ref={tiltRef} className="product-card" style={{ "--delay": `${index * 55}ms` } as CSSProperties}>
       <Link href={`/tires/${product.handle}`} className="product-image-frame" aria-label={`View ${product.title}`}>
         <span className="product-index">0{index + 1}</span>
-        <img className="product-tire-image" src={productImage(product)} alt={product.title} />
+        <img className="product-tire-image" src={productImage(product)} alt={product.title} width={900} height={900} loading="lazy" decoding="async" />
         <span className="image-scan" />
         <span className="product-more"><ArrowUpRight size={18} /></span>
       </Link>

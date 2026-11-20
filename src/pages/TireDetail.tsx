@@ -26,7 +26,7 @@ export default function TireDetail() {
       <div className="container">
         <Link href="/tires" className="back-link"><ArrowLeft size={16} /> กลับไปรายการยาง</Link>
         <div className="detail-grid">
-          <div className="detail-visual hud-frame"><span className="visual-label top">ยาง / สแกน 01</span><img src={productImage(product)} alt={product.title} /><span className="visual-label bottom">แรงยึดเกาะ / พร้อมใชังาน</span></div>
+          <div className="detail-visual hud-frame"><span className="visual-label top">ยาง / สแกน 01</span><img src={productImage(product)} alt={product.title} width={900} height={900} fetchPriority="high" /><span className="visual-label bottom">แรงยึดเกาะ / พร้อมใชังาน</span></div>
           <div className="detail-copy">
             <p className="eyebrow text-pink-300">{product.vendor || "เป้าการยาง"} / {product.productType || "ยาง"}</p>
             <h1>{product.title}</h1>

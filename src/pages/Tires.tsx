@@ -46,7 +46,7 @@ export default function Tires() {
 
   return <SiteShell>
     <section className="hero-section tires-hero tires-hero--background tires-hero--filled">
-      <img className="hero-image" src="/hero-tire-violet-2560.webp" srcSet="/hero-tire-violet-1280.webp 1280w, /hero-tire-violet-2560.webp 2560w" sizes="100vw" alt="ภาพยางรถยนต์ในอู่ไฟนีออน" />
+      <img className="hero-image" src="/hero-tire-violet-2560.webp" srcSet="/hero-tire-violet-1280.webp 1280w, /hero-tire-violet-2560.webp 2560w" sizes="100vw" width={2560} height={1428} fetchPriority="high" alt="ภาพยางรถยนต์ในอู่ไฟนีออน" />
       <div className="hero-wash" />
       <div className="container hero-content tires-hero-content">
         <p className="hero-kicker"><span className="pulse-dot" /> แค็ตตาล็อก / สต็อกจริง</p>
@@ -66,6 +66,7 @@ export default function Tires() {
           <output className="filter-feedback" aria-live="polite"><span>{statusMessage}</span></output>
         </div>
         <div className="catalog-status" aria-live="polite"><span>{statusMessage}</span><span>ศูนย์ / อยุธยา</span></div>
+        <h2 className="sr-only">รายการยาง</h2>
         {results.length ? <div className="product-grid">{results.map((product, index) => <ProductCard key={product.id} product={product} index={index} />)}</div> : <div className="empty-results"><FilterX size={28} /><h2>ไม่พบรายการที่ตรงกับตัวกรอง</h2><p>ลองล้างตัวกรองเพื่อดูรายการยางทั้งหมด</p><button className="neon-button cyan" onClick={resetFilters}>ล้างตัวกรอง</button></div>}
       </div>
     </section>
