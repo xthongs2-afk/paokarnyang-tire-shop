@@ -21,10 +21,11 @@ function Routes() {
   );
 }
 
-function App() {
+/** `ssrPath` is set only by the build-time prerender (src/entry-server.tsx). */
+function App({ ssrPath }: { ssrPath?: string }) {
   return (
     <ErrorBoundary>
-      <WouterRouter>
+      <WouterRouter ssrPath={ssrPath}>
         <Routes />
       </WouterRouter>
     </ErrorBoundary>

@@ -37,10 +37,27 @@ function setCanonical(href: string | null) {
   el.href = href;
 }
 
+export type ResolvedSeo = Required<Pick<SeoOptions, "title" | "description" | "image" | "noindex">> & { url: string | null };
+
+export function resolveSeo({ title, description, path, image = DEFAULT_IMAGE, noindex = false }: SeoOptions): ResolvedSeo {
+  return { title, description, image, noindex, url: !noindex && path ? `${SITE_URL}${path}` : null };
+}
+
+// During the build-time prerender there is no document: the page's meta is recorded here
+// for scripts/prerender.mjs to write into the static HTML.
+let ssrSeo: ResolvedSeo | null = null;
+export function takeSsrSeo() {
+  const value = ssrSeo;
+  ssrSeo = null;
+  return value;
+}
+
 /** Sets title, description, canonical, robots and Open Graph tags for the current page. */
-export function useSeo({ title, description, path, image = DEFAULT_IMAGE, noindex = false }: SeoOptions) {
+export function useSeo(options: SeoOptions) {
+  if (typeof document === "undefined") ssrSeo = resolveSeo(options);
+  const { title, description, path, image = DEFAULT_IMAGE, noindex = false } = options;
   useEffect(() => {
-    const url = path ? `${SITE_URL}${path === "/" ? "/" : path}` : null;
+    const url = resolveSeo({ title, description, path, image, noindex }).url;
     document.title = title;
     setMeta("name", "description", description);
     setMeta("name", "robots", noindex ? "noindex, follow" : "index, follow");
