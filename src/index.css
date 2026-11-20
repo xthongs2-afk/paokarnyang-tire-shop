@@ -230,6 +230,14 @@ h1 em, h2 em { color: #ff48b3; font-style: normal; text-shadow: 0 0 22px rgba(25
 .spec-block { border-top: 1px solid rgba(148,163,184,.25); }
 .spec-title { display: flex; justify-content: space-between; padding: .9rem 0; color: #ff9ad7; font-family: "Chakra Petch", sans-serif; font-size: .66rem; font-weight: 700; letter-spacing: .11em; }
 .spec-title span { color: #6ff3ff; }.spec-row { display: flex; justify-content: space-between; gap: 1rem; padding: .72rem 0; border-top: 1px solid rgba(148,163,184,.17); }.spec-row span { color: #8d9aae; font-size: .8rem; }.spec-row strong { color: #ecf4ff; font-family: "Chakra Petch", sans-serif; font-size: .78rem; text-align: right; }
+.tire-guide { padding: clamp(2.5rem, 6vw, 4.5rem) 0; border-top: 1px solid rgba(148,163,184,.17); }
+.tire-guide-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(2rem, 6vw, 6rem); }
+.tire-guide h2 { margin: 0 0 .9rem; color: white; font-size: clamp(1.3rem, 2.4vw, 1.7rem); }
+.tire-guide h2:not(:first-child) { margin-top: 2rem; }
+.tire-guide p, .tire-guide li { color: #a6b2c2; line-height: 1.72; }
+.tire-guide ul { margin: 0 0 1rem; padding-left: 1.2rem; list-style: disc; }
+.tire-guide a { color: #9eeeff; text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 760px) { .tire-guide-grid { grid-template-columns: 1fr; } }
 .detail-loading { min-height: 68vh; display: grid; place-content: center; justify-items: center; color: #90a1b4; font-family: "Chakra Petch", sans-serif; font-size: .75rem; letter-spacing: .12em; }
 
 .service-list { border-top: 1px solid rgba(148,163,184,.24); }

@@ -11,6 +11,8 @@ type SeoOptions = {
   path?: string;
   image?: string;
   noindex?: boolean;
+  /** Page-specific structured data, written as JSON-LD script tags in <head>. */
+  jsonLd?: object[];
 };
 
 function setMeta(attr: "name" | "property", key: string, content: string) {
@@ -21,6 +23,18 @@ function setMeta(attr: "name" | "property", key: string, content: string) {
     document.head.appendChild(el);
   }
   el.content = content;
+}
+
+/** Replaces the page-specific JSON-LD blocks (the prerendered ones carry the same marker). */
+function setJsonLd(blocks: string) {
+  document.head.querySelectorAll("script[data-page-ld]").forEach(el => el.remove());
+  for (const block of JSON.parse(blocks) as object[]) {
+    const el = document.createElement("script");
+    el.type = "application/ld+json";
+    el.dataset.pageLd = "";
+    el.textContent = JSON.stringify(block);
+    document.head.appendChild(el);
+  }
 }
 
 function setCanonical(href: string | null) {
@@ -37,10 +51,10 @@ function setCanonical(href: string | null) {
   el.href = href;
 }
 
-export type ResolvedSeo = Required<Pick<SeoOptions, "title" | "description" | "image" | "noindex">> & { url: string | null };
+export type ResolvedSeo = Required<Pick<SeoOptions, "title" | "description" | "image" | "noindex" | "jsonLd">> & { url: string | null };
 
-export function resolveSeo({ title, description, path, image = DEFAULT_IMAGE, noindex = false }: SeoOptions): ResolvedSeo {
-  return { title, description, image, noindex, url: !noindex && path ? `${SITE_URL}${path}` : null };
+export function resolveSeo({ title, description, path, image = DEFAULT_IMAGE, noindex = false, jsonLd = [] }: SeoOptions): ResolvedSeo {
+  return { title, description, image, noindex, jsonLd, url: !noindex && path ? `${SITE_URL}${path}` : null };
 }
 
 // During the build-time prerender there is no document: the page's meta is recorded here
@@ -56,6 +70,8 @@ export function takeSsrSeo() {
 export function useSeo(options: SeoOptions) {
   if (typeof document === "undefined") ssrSeo = resolveSeo(options);
   const { title, description, path, image = DEFAULT_IMAGE, noindex = false } = options;
+  // Serialised so a new array literal on every render does not re-run the effect.
+  const jsonLd = JSON.stringify(options.jsonLd ?? []);
   useEffect(() => {
     const url = resolveSeo({ title, description, path, image, noindex }).url;
     document.title = title;
@@ -70,5 +86,6 @@ export function useSeo(options: SeoOptions) {
     setMeta("property", "og:locale", "th_TH");
     if (url) setMeta("property", "og:url", url);
     setMeta("name", "twitter:card", "summary_large_image");
-  }, [title, description, path, image, noindex]);
+    setJsonLd(jsonLd);
+  }, [title, description, path, image, noindex, jsonLd]);
 }

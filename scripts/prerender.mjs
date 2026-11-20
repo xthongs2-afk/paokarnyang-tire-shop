@@ -35,6 +35,8 @@ for (const route of routes) {
     html = setTag(html, /\s*<link rel="canonical" href="[^"]*" \/>/, "");
     html = setTag(html, /\s*<meta property="og:url" content="[^"]*" \/>/, "");
   }
+  const ld = seo.jsonLd.map(block => `<script type="application/ld+json" data-page-ld>${JSON.stringify(block).replace(/</g, "\\u003c")}</script>`).join("");
+  html = setTag(html, /<\/head>/, `${ld}</head>`);
   const file = route === "/" ? "index.html" : `${route.slice(1)}.html`;
   fs.mkdirSync(path.dirname(path.join(dist, file)), { recursive: true });
   fs.writeFileSync(path.join(dist, file), html);
