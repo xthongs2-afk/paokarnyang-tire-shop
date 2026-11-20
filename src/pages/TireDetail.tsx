@@ -1,3 +1,4 @@
+import { SITE_URL, useSeo } from "@/lib/seo";
 import SiteShell from "@/components/SiteShell";
 import { getTagValue, productImage } from "@/lib/storefront";
 import { staticCatalogByHandle } from "@shared/commerce/staticCatalog";
@@ -8,6 +9,12 @@ export default function TireDetail() {
   const [, params] = useRoute("/tires/:handle");
   const handle = params?.handle || "";
   const product = staticCatalogByHandle.get(handle);
+  const size = product ? getTagValue(product, "size") : "";
+  const vehicle = product ? getTagValue(product, "vehicle") : "";
+  const image = product ? productImage(product) : undefined;
+  useSeo(product
+    ? { title: `${product.title} ${size} | เป้าการยาง อยุธยา`, description: `${product.title} ขนาด ${size} สำหรับ${vehicle} ที่เป้าการยาง อ.อุทัย อยุธยา พร้อมติดตั้ง โทรสอบถามสต็อกและราคา 035-213134`, path: `/tires/${product.handle}`, image: image && image.startsWith("/") ? `${SITE_URL}${image}` : image }
+    : { title: "ไม่พบข้อมูลยาง | เป้าการยาง", description: "ไม่พบข้อมูลยางที่ระบุ ดูรายการยางทั้งหมดของเป้าการยาง", noindex: true });
 
   if (!product) return <SiteShell><div className="detail-loading"><span>ไม่พบข้อมูลยางที่ระบุ</span><Link href="/tires" className="neon-button cyan mt-5">กลับไปรายการยาง</Link></div></SiteShell>;
 

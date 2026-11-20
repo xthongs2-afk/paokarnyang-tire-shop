@@ -1,3 +1,4 @@
+import { useSeo } from "@/lib/seo";
 import ProductCard from "@/components/ProductCard";
 import SiteShell from "@/components/SiteShell";
 import { getTagValue } from "@/lib/storefront";
@@ -27,6 +28,7 @@ function CatalogGroup({ products, vehicle }: { products: Product[]; vehicle: str
 }
 
 export default function Home() {
+  useSeo({ title: "ร้านยาง อยุธยา | เป้าการยาง ปะยาง ถ่วงล้อ", description: "เป้าการยาง ร้านยาง อยุธยา ต.ธนู อ.อุทัย ยางรถเก๋ง รถกระบะ รถ 6 ล้อ 10 ล้อ ปะยาง ถ่วงล้อ และปะยางนอกสถานที่ โทร 035-213134 เปิดทุกวัน 08:00–17:00 น.", path: "/" });
   const products = staticCatalog;
 
   return <SiteShell>

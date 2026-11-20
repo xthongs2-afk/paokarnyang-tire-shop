@@ -1,7 +1,9 @@
+import { useSeo } from "@/lib/seo";
 import SiteShell from "@/components/SiteShell";
 import { Link } from "wouter";
 
 export default function NotFound() {
+  useSeo({ title: "ไม่พบหน้าที่ต้องการ | เป้าการยาง", description: "ไม่พบหน้าที่ต้องการ กลับไปหน้าแรกของเป้าการยาง ร้านยาง อยุธยา", noindex: true });
   return (
     <SiteShell>
       <div style={{ padding: "6rem 1.5rem", textAlign: "center" }}>

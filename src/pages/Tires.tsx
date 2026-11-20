@@ -1,3 +1,4 @@
+import { useSeo } from "@/lib/seo";
 import ProductCard from "@/components/ProductCard";
 import SiteShell from "@/components/SiteShell";
 import { filterTires, getTagValue } from "@/lib/storefront";
@@ -10,6 +11,7 @@ function FilterSelect({ label, value, values, onChange, disabled }: { label: str
 }
 
 export default function Tires() {
+  useSeo({ title: "ยางรถเก๋ง รถกระบะ รถ 6 ล้อ 10 ล้อ | เป้าการยาง อยุธยา", description: "รายการยางรถเก๋ง รถกระบะ รถ 6 ล้อ และรถ 10 ล้อ ที่เป้าการยาง อ.อุทัย อยุธยา มี HANKOOK MICHELIN YOKOHAMA และอื่นๆ โทรสอบถามสต็อกและราคา 035-213134", path: "/tires" });
   const products = staticCatalog;
   const [brand, setBrand] = useState("all");
   const [size, setSize] = useState("all");
